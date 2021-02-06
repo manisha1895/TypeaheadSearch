@@ -13,5 +13,6 @@ STEPS to run in local :
 5. open dist/index.html in a browser
 6. The search is for a simple entity - fruit and can be extended for bigger objects.
 
+
 The dropdown options change with respect to input text and once selected will appear as a chip beside.
 Selected entities even though displayed in the dropdown will not appear as chip if already selected once.
