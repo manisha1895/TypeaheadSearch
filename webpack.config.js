@@ -10,7 +10,20 @@ module.exports = {
         // the output of the webpack build will be in /dist directory
         path: path.resolve(__dirname, 'dist'),
         // the filename of the JS bundle will be bundle.js
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+    },
+    devServer: {
+        historyApiFallback: true,
+        // contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080/',
+                secure: false,
+                changeOrigin: true
+            }
+        }
     },
     module: {
         rules: [
@@ -29,5 +42,5 @@ module.exports = {
         ]
     },
     // add a custom index.html as the template
-    plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') })]
+    plugins: [new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') , filename: 'index.html'})]
 };
